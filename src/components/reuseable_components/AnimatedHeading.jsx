@@ -37,7 +37,7 @@ const AnimatedHeading = ({
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}>
         <motion.p
-          className={`text-${headingSize} inline-block h-full py-2  my-0 px-6 font-PP_Mori`}
+          className={`text-${headingSize} inline-block h-full   my-0 px-6 font-PP_Mori`}
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           transition={{ duration: 2 }}
