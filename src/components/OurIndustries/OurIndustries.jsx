@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import AnimatedHeading from "../reuseable_components/AnimatedHeading";
 

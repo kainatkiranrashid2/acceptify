@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "starry-night": "url('/assets/stary_background.svg')",
+        "starry-night": "url('/assets/starry_night.jpg')",
       },
       fontSize: {
         h1: ["69px", { fontWeight: "700" }],
@@ -31,7 +31,7 @@ export default {
         PP_Mori: ["PP Mori", "sans-serif"],
       },
       backgroundColor: {
-        "night-sky": "#0a192f",
+        "night-sky": "#000000",
       },
 
       colors: {
