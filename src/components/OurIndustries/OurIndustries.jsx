@@ -70,7 +70,7 @@ const OurIndustries = () => {
     <div className="container py-[85px] w-full">
       <div className="w-[1090px] mx-auto flex flex-col justify-center items-center mb-[84px] mt-[10px]">
         <AnimatedHeading
-          textSize="44px"
+          textSize="text-[44px]"
           heightForBox="75px"
           firstText="Never miss a sale by using Acceptify, the platform built "
           secondText="for the most challenging mobile environments where "
