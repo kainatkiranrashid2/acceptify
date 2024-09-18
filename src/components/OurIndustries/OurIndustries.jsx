@@ -9,7 +9,7 @@ const OurIndustries = () => {
 
   const textOptions = [
     "Transaction speed matters",
-    "Scalability to exceptionally high transaction volumes is needed",
+    "Operate outside of four walls",
     "Connectivity is not guaranteed",
   ];
 
