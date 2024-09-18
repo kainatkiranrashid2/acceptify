@@ -14,21 +14,15 @@ const AnimatedHeading = ({
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}>
-      <motion.div
-        className={`text-${headingSize} text-black dark:text-white mr-2`}
-        style={{
-          letterSpacing: "-2px",
-        }}>
+      <motion.span
+        className={`text-${headingSize} text-black dark:text-white mr-2`}>
         {firstText}
-      </motion.div>
+      </motion.span>
       <div className="flex ">
-        <motion.div
-          className={`text-${headingSize} text-black dark:text-white mr-2`}
-          style={{
-            letterSpacing: "-2px",
-          }}>
+        <motion.span
+          className={`text-${headingSize} text-black dark:text-white mr-2`}>
           {secondText}
-        </motion.div>
+        </motion.span>
 
         <motion.div
           key={currentText}
@@ -41,10 +35,7 @@ const AnimatedHeading = ({
             className={`text-${headingSize} inline-block h-full   my-0 px-6 font-PP_Mori`}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
-            transition={{ duration: 2 }}
-            style={{
-              letterSpacing: "-2px",
-            }}>
+            transition={{ duration: 2 }}>
             {currentText}
           </motion.p>
         </motion.div>
