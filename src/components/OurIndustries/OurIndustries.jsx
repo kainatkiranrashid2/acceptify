@@ -1,11 +1,13 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import AnimatedHeading from "../reuseable_components/AnimatedHeading";
 
 const OurIndustries = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const videoRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   const textOptions = [
     "Transaction speed matters",
@@ -31,27 +33,47 @@ const OurIndustries = () => {
     },
   ];
 
-  const handlePrev = () => {
-    setFade(true);
-    setTimeout(() => {
-      setCurrentIndex(
-        (prevIndex) =>
-          (prevIndex - 1 + industryVideos.length) % industryVideos.length
-      );
-    }, 500);
-  };
+  const startTransition = useCallback(
+    (direction = "next") => {
+      setIsAnimating(true);
+      setFade(true);
 
-  const handleNext = () => {
-    setFade(true);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % industryVideos.length);
-    }, 500);
-  };
+      setTimeout(() => {
+        if (direction === "next") {
+          setCurrentIndex(
+            (prevIndex) => (prevIndex + 1) % industryVideos.length
+          );
+        } else {
+          setCurrentIndex(
+            (prevIndex) =>
+              (prevIndex - 1 + industryVideos.length) % industryVideos.length
+          );
+        }
+      }, 0);
+
+      setTimeout(() => {
+        setFade(false);
+        setIsAnimating(false);
+      }, 0);
+    },
+    [industryVideos.length]
+  );
+
+  const scheduleNextTransition = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => startTransition("next"), 4000);
+  }, [startTransition]);
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 4000);
-    return () => clearInterval(interval);
-  }, []);
+    scheduleNextTransition();
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [currentIndex, scheduleNextTransition]);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -59,12 +81,15 @@ const OurIndustries = () => {
       videoRef.current.load();
       videoRef.current
         .play()
-        .then(() => {
-          setFade(false);
-        })
         .catch((error) => console.error("Video play failed:", error));
     }
-  }, [currentIndex]);
+  }, [currentIndex, industryVideos]);
+
+  const handleNavigation = (direction) => {
+    if (isAnimating) return;
+    startTransition(direction);
+    scheduleNextTransition();
+  };
 
   return (
     <div className="container py-[85px] w-full">
@@ -79,22 +104,27 @@ const OurIndustries = () => {
       </div>
       <div className="relative w-full h-[622px] rounded-2xl overflow-hidden">
         <button
-          onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 transition-all duration-300">
+          onClick={() => handleNavigation("prev")}
+          disabled={isAnimating}
+          className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 transition-all duration-300 ${
+            isAnimating ? "opacity-50 cursor-not-allowed" : ""
+          }`}>
           <FaArrowLeft className="text-black text-2xl" />
         </button>
         <button
-          onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 transition-all duration-300">
+          onClick={() => handleNavigation("next")}
+          disabled={isAnimating}
+          className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 transition-all duration-300 ${
+            isAnimating ? "opacity-50 cursor-not-allowed" : ""
+          }`}>
           <FaArrowRight className="text-black text-2xl" />
         </button>
         <video
           ref={videoRef}
           autoPlay
-          loop
           muted
           playsInline
-          className={`w-full h-full object-cover rounded-2xl transition-opacity duration-500 ${
+          className={`w-full h-full object-cover rounded-2xl transition-opacity duration-1500 ${
             fade ? "opacity-0" : "opacity-100"
           }`}
         />
