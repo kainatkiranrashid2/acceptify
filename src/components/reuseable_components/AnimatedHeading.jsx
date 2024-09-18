@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 const AnimatedHeading = ({
   firstText,
   secondText,
-  py,
   currentText,
   textSize,
   heightForBox,
@@ -35,7 +34,7 @@ const AnimatedHeading = ({
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}>
         <motion.p
-          className={` inline-block h-full ${py}   !my-0 px-6 font-PP_Mori`}
+          className={` inline-block h-full    !my-0 px-6 font-PP_Mori`}
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           style={{ letterSpacing: "-2px" }}
@@ -55,5 +54,4 @@ AnimatedHeading.propTypes = {
   currentText: PropTypes.string.isRequired,
   textSize: PropTypes.string.isRequired,
   heightForBox: PropTypes.string.isRequired,
-  py: PropTypes.string.isRequired,
 };
