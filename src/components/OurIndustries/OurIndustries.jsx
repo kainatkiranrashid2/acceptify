@@ -68,7 +68,7 @@ const OurIndustries = () => {
 
   return (
     <div className="container py-[85px] w-full">
-      <div className="w-full max-w-[1090px] mx-auto flex justify-center items-center mb-[84px] mt-[10px]">
+      <div className="w-[1090px] mx-auto flex justify-center items-center mb-[84px] mt-[10px]">
         <AnimatedHeading
           headingSize="h3"
           heightForBox="75px"
