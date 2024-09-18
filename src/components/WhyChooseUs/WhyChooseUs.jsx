@@ -30,7 +30,7 @@ const WhyLsaPayValues = [
     },
     heading: "iOS, Android or Windows",
     details:
-      "Whether you have iOS, Android, or Windows devices (Mobile or Tablet), LSAPay simply integrates and supports all platforms.",
+      "Whether you have iOS, Android, or Windows devices (Mobile or Tablet), acceptify simply integrates and supports all platforms.",
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ const WhyLsaPayValues = [
     },
     heading: "Accept Cards/Wallets",
     details:
-      "Swipe, tap or insert. LSAPay safely accepts electronic payments whether your customers choose credit cards or e-wallets to run transactions.  ",
+      "Swipe, tap or insert. acceptify safely accepts electronic payments whether your customers choose credit cards or e-wallets to run transactions.  ",
   },
   {
     id: 5,

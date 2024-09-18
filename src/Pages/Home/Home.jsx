@@ -24,7 +24,7 @@ const Home = () => {
       },
       title: "Online / Offline",
       details:
-        "No connection, no problem. LSAPay intelligently ensures that all your transactions are swift, secure, and trackable, whether your devices are online or offline.   ",
+        "No connection, no problem. acceptify intelligently ensures that all your transactions are swift, secure, and trackable, whether your devices are online or offline.   ",
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const Home = () => {
       },
       title: "iOS, Android or Windows",
       details:
-        "Whether you have iOS, Android, or Windows devices (Mobile or Tablet), LSAPay simply integrates and supports all platforms.",
+        "Whether you have iOS, Android, or Windows devices (Mobile or Tablet), acceptify simply integrates and supports all platforms.",
     },
     {
       id: 3,
