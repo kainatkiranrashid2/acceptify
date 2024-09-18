@@ -24,7 +24,7 @@ const Hero = () => {
       <div className="container">
         <div className="z-0 md:z-10 w-[954px] mx-auto items-center">
           <AnimatedHeading
-            headingSize="h1"
+            textSize="69px"
             heightForBox="95px"
             firstText="Take payments anytime,"
             secondText="anywhere"
