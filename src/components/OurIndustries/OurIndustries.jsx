@@ -106,7 +106,7 @@ const OurIndustries = () => {
         <button
           onClick={() => handleNavigation("prev")}
           disabled={isAnimating}
-          className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 transition-all duration-300 ${
+          className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full h-72 w-72 p-3 transition-all duration-300 ${
             isAnimating ? "opacity-50 cursor-not-allowed" : ""
           }`}>
           <FaArrowLeft className="text-black text-2xl" />
@@ -114,7 +114,7 @@ const OurIndustries = () => {
         <button
           onClick={() => handleNavigation("next")}
           disabled={isAnimating}
-          className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-3 transition-all duration-300 ${
+          className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full h-72 w-72 p-3 transition-all duration-300 ${
             isAnimating ? "opacity-50 cursor-not-allowed" : ""
           }`}>
           <FaArrowRight className="text-black text-2xl" />
