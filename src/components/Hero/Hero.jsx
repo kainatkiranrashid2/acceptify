@@ -6,18 +6,18 @@ import AnimatedText from "../reuseable_components/AnimatedText";
 const Hero = () => {
   const [currentText, setCurrentText] = useState("On The Land");
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const textOptions = ["On The Land", "At Sea", "In The Air"];
-      setCurrentText((prevText) => {
-        const currentIndex = textOptions.indexOf(prevText);
-        const nextIndex = (currentIndex + 1) % textOptions.length;
-        return textOptions[nextIndex];
-      });
-    }, 2500);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const textOptions = ["On The Land", "At Sea", "In The Air"];
+  //     setCurrentText((prevText) => {
+  //       const currentIndex = textOptions.indexOf(prevText);
+  //       const nextIndex = (currentIndex + 1) % textOptions.length;
+  //       return textOptions[nextIndex];
+  //     });
+  //   }, 2500);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="mx-auto px-0 text-center mb-5 mt-[150px]">
@@ -26,6 +26,7 @@ const Hero = () => {
           <AnimatedHeading
             textSize="text-[69px]/[86px]"
             heightForBox="85px"
+            py=""
             firstText="Take payments anytime,"
             secondText="anywhere"
             currentText={currentText}

@@ -72,6 +72,7 @@ const OurIndustries = () => {
         <AnimatedHeading
           textSize="text-[44px]"
           heightForBox="75px"
+          // py="py-4"
           firstText="Never miss a sale by using Acceptify, the platform built "
           secondText="for the most challenging mobile environments where "
           currentText={textOptions[currentIndex]}
