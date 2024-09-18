@@ -10,7 +10,7 @@ const AnimatedHeading = ({
 }) => {
   return (
     <motion.div
-      className={`w-full text-center  text-${headingSize} font-PP_Mori z-0 md:z-10 box-border text-wrap font-bold overflow-hidden gap-3 flex flex-col flex-wrap justify-center items-baseline`}
+      className={`w-full text-center  text-${headingSize} font-PP_Mori z-0 md:z-10 box-border text-wrap font-bold overflow-hidden gap-3 flex flex-col flex-wrap justify-center items-center`}
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}>
