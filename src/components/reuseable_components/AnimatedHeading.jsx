@@ -16,20 +16,19 @@ const AnimatedHeading = ({
       transition={{ duration: 0.8 }}>
       <motion.span
         className={` text-black dark:text-white mr-2`}
-        style={{ letterSpacing: "-2px", lineHeight: "85px" }}>
+        style={{ letterSpacing: "-2px" }}>
         {firstText}
       </motion.span>
 
       <motion.span
         className={` text-black dark:text-white mr-2`}
-        style={{ letterSpacing: "-2px", lineHeight: "85px" }}>
+        style={{ letterSpacing: "-2px" }}>
         {secondText}
       </motion.span>
 
       <motion.div
         key={currentText}
         className={` rounded-2xl !h-[${heightForBox}] pt-2    bg-primary font-PP_Mori text-nowrap overflow-hidden text-white  border-[#65D008] inline-flex items-center justify-center`}
-        style={{ lineHeight: "82px" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}>
