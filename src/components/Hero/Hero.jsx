@@ -45,7 +45,7 @@ const Hero = () => {
             className="absolute dark:hidden w-30 max-w-6xl top-4 left-[55%]  z-20"
           />
           <motion.video
-            src="/assets/hero/full_globe_3.webm"
+            src="/assets/hero/half_globe_19_sep.webm"
             alt="Global map"
             className="w-full z-20 max-w-full mx-auto relative"
             initial={{ opacity: 0, scale: 0.8 }}
