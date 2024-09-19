@@ -233,7 +233,7 @@
   }
 
   .dark body {
-    @apply bg-night-sky bg-starry-night bg-no-repeat min-h-screen;
+    @apply bg-night-sky bg-starry-night bg-repeat min-h-screen;
   }
 }
 
