@@ -2,6 +2,7 @@ import Hero from "../../components/Hero/Hero";
 import OurClients from "../../components/OurClients/OurClients";
 import OurIndustries from "../../components/OurIndustries/OurIndustries";
 import SectionHeading from "../../components/reuseable_components/SectionHeading";
+import ScrollAnimationComponent from "../../components/ScrollAnimationComponent/ScrollAnimationComponent";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 
 const Home = () => {
@@ -58,7 +59,12 @@ const Home = () => {
           <SectionHeading mainText="Why choose Acceptify" />
           <WhyChooseUs />
         </div>
-        <OurIndustries />
+        {/* <OurIndustries /> */}
+        <ScrollAnimationComponent />
+        <div className="bg-[#F6F6F6] py-[110px]">
+          <SectionHeading mainText="Why choose Acceptify" />
+          <WhyChooseUs />
+        </div>
       </div>
     </>
   );
