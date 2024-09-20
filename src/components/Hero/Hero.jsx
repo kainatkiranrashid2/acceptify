@@ -20,11 +20,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="mx-auto px-0 text-center mb-5 mt-[150px]">
+    <div className="mx-auto px-0 text-center mt-[56px] sm:mt-[114px] md:mt-[87px] lg:mt[60px] xl:mt-[50px] ">
       <div className="container">
-        <div className="z-0 md:z-10 w-[954px] mx-auto items-center">
+        <div className="z-0 md:z-10 w-[281px] sm:w-[466px]  md:w-[545px] lg:w-[954px] mx-auto items-center">
           <AnimatedHeading
-            textSize="text-[69px]/[86px]"
+            textSize="text-[26px]/[32.5px] sm:text-[38px]/[47.5px] md:text-[47px]/[59px] lg:text-[59px]/[74px] xl:text-[66px]/[83px] 2xl:text-[69px]/[86px]"
             heightForBox="85px"
             firstText="Take payments anytime,"
             secondText="anywhere"
@@ -32,7 +32,7 @@ const Hero = () => {
           />
 
           <AnimatedText
-            className="text-body w-[662px] font-PP_Mori text-dark dark:text-white mt-[27px] max-w-2xl mx-auto"
+            className=" text-[15px]/[24.5px] sm:text-[17px]/[28px]  lg:text-[18px]/[29.7px] font-medium w-[271px] sm:sm-[513px] md:w-[598px]  lg:w-[662px] font-PP_Mori text-dark dark:text-white mt-[14px] sm:mt-[20px] md:mt-[27px] lg:mt[30px]  max-w-2xl mx-auto"
             text="Acceptify enables your applications to accept worldwide, secure, certified, online/offline payments while removing all of your security concerns."
           />
         </div>
@@ -42,12 +42,23 @@ const Hero = () => {
           {/* <CloudScene className="absolute dark:hidden w-full max-w-6xl left-[25%]  z-20" /> */}
           <img
             src="/assets/cloud.png"
-            className="absolute dark:hidden w-30 max-w-6xl top-4 left-[55%]  z-20"
+            className="absolute hidden md:block dark:hidden w-30 max-w-6xl top-4 left-[55%]  z-20"
           />
           <motion.video
-            src="/assets/hero/half_globe_19_sep.webm"
+            src="/assets/hero/half_globe.webm"
             alt="Global map"
-            className="w-full z-20 max-w-full mx-auto relative"
+            className="w-full hidden md:block	 :z-20 *  max-w-full mx-auto relative"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.9, duration: 1 }}
+            autoPlay
+            loop
+            muted
+          />
+          <motion.video
+            src="/assets/hero/mobile_half_globe.webm"
+            alt="Global map"
+            className="w-full  md:hidden	 :z-20  max-w-full mx-auto relative"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.9, duration: 1 }}

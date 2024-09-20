@@ -102,7 +102,7 @@ const OurClients = ({ classText }) => {
   };
 
   return (
-    <div className="relative isolate mt-[76px]  !h-[148px]  bg-white py-10 w-full  overflow-hidden">
+    <div className="relative isolate  !h-[148px]  bg-white py-10 w-full  overflow-hidden">
       <AnimatePresence initial={false} className="!h-[52px]">
         <motion.div
           key={currentIndex}

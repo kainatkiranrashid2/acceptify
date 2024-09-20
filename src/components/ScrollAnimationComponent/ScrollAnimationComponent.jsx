@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -6,36 +6,46 @@ gsap.registerPlugin(ScrollTrigger);
 
 const items = [
   {
-    title: "Item 1",
-    description: "Description for item 1...",
-    image: "/assets/whylsa/lock_svg.svg",
+    title: "Simplify Your PCI",
+    description:
+      "No connection, no problem. Acceptify intelligently ensures that all your transactions are swift, secure, and trackable, whether your devices are online or offline.",
+    videos: [
+      "/assets/scroll_animation/flexcase.webm",
+      "/assets/scroll_animation/shield.webm",
+    ],
   },
   {
-    title: "Item 2",
-    description: "Description for item 2...",
-    image: "/assets/whylsa/no_wifi_svg.svg",
+    title: "Online/Offline",
+    description:
+      "No connection, no problem. Acceptify intelligently ensures that all your transactions are swift, secure, and trackable, whether your devices are online or offline.",
+    videos: ["/assets/scroll_animation/01.webm"],
   },
   {
-    title: "Item 3",
-    description: "Description for item 3...",
-    image: "/assets/whylsa/online_svg.svg",
+    title: "Enterprise Processing",
+    description:
+      "No connection, no problem. Acceptify intelligently ensures that all your transactions are swift, secure, and trackable, whether your devices are online or offline.",
+    videos: ["/assets/scroll_animation/02.webm"],
   },
-  {
-    title: "Item 4",
-    description: "Description for item 3...",
-    image: "/assets/whylsa/no_wifi_svg.svg",
-  },
-  // Add more items as needed
 ];
+
 const ScrollAnimationComponent = () => {
   const componentRef = useRef(null);
   const sectionsRef = useRef([]);
-  const imagesRef = useRef([]);
+  const videosRef = useRef([]);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   useEffect(() => {
     const component = componentRef.current;
     const sections = sectionsRef.current;
-    const images = imagesRef.current;
+
+    // Preload all videos
+    items.forEach((item, itemIndex) => {
+      item.videos.forEach((videoSrc, videoIndex) => {
+        const video = videosRef.current[itemIndex][videoIndex];
+        video.load();
+      });
+    });
 
     let mm = gsap.matchMedia();
 
@@ -45,31 +55,37 @@ const ScrollAnimationComponent = () => {
         trigger: component,
         start: "top top",
         end: "bottom bottom",
-        pin: ".image-container",
+        pin: ".video-container",
       });
 
-      // Animate sections and images
+      // Animate sections and videos
       sections.forEach((section, index) => {
-        const image = images[index];
-        const nextImage = images[index + 1];
-
         ScrollTrigger.create({
           trigger: section,
           start: "top center",
           end: "bottom center",
           onEnter: () => {
-            gsap.to(image, { opacity: 1, duration: 0.5 });
-            if (index > 0) {
-              gsap.to(images[index - 1], { opacity: 0, duration: 0.5 });
-            }
+            setCurrentItemIndex(index);
+            setCurrentVideoIndex(0);
           },
           onEnterBack: () => {
-            gsap.to(image, { opacity: 1, duration: 0.5 });
-            if (nextImage) {
-              gsap.to(nextImage, { opacity: 0, duration: 0.5 });
-            }
+            setCurrentItemIndex(index);
+            setCurrentVideoIndex(items[index].videos.length - 1);
           },
         });
+
+        // For the first item, create an additional trigger for the second video
+        if (index === 0 && items[0].videos.length > 1) {
+          ScrollTrigger.create({
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            onUpdate: (self) => {
+              const progress = self.progress;
+              setCurrentVideoIndex(progress < 0.65 ? 0 : 1);
+            },
+          });
+        }
       });
 
       return () => {
@@ -82,8 +98,24 @@ const ScrollAnimationComponent = () => {
     };
   }, []);
 
+  useEffect(() => {
+    videosRef.current.forEach((videoArray, itemIndex) => {
+      videoArray.forEach((video, videoIndex) => {
+        if (
+          itemIndex === currentItemIndex &&
+          videoIndex === currentVideoIndex
+        ) {
+          video.play();
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    });
+  }, [currentItemIndex, currentVideoIndex]);
+
   return (
-    <div ref={componentRef} className="relative">
+    <div ref={componentRef} className="container relative">
       <div className="flex">
         <div className="w-1/2 pl-8 pr-4">
           {items.map((item, index) => (
@@ -96,17 +128,36 @@ const ScrollAnimationComponent = () => {
             </div>
           ))}
         </div>
-        <div className="w-1/2 image-container">
+        <div className="w-1/2 video-container">
           <div className="sticky top-0 h-screen flex items-center justify-center">
-            {items.map((item, index) => (
-              <img
-                key={index}
-                ref={(el) => (imagesRef.current[index] = el)}
-                src={item.image}
-                alt={item.title}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-auto object-cover opacity-0"
-                style={{ opacity: index === 0 ? 1 : 0 }}
-              />
+            {items.map((item, itemIndex) => (
+              <div
+                key={itemIndex}
+                className="absolute top-0 left-0 w-full h-full">
+                {item.videos.map((videoSrc, videoIndex) => (
+                  <video
+                    key={`${itemIndex}-${videoIndex}`}
+                    ref={(el) => {
+                      if (!videosRef.current[itemIndex]) {
+                        videosRef.current[itemIndex] = [];
+                      }
+                      videosRef.current[itemIndex][videoIndex] = el;
+                    }}
+                    src={videoSrc}
+                    loop
+                    muted
+                    playsInline
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full aspect-video object-contain transition-opacity duration-900 ease-in-out"
+                    style={{
+                      opacity:
+                        itemIndex === currentItemIndex &&
+                        videoIndex === currentVideoIndex
+                          ? 1
+                          : 0,
+                    }}
+                  />
+                ))}
+              </div>
             ))}
           </div>
         </div>
