@@ -56,14 +56,16 @@ const ScrollAnimationComponent = () => {
         start: "top top",
         end: "bottom bottom",
         pin: ".video-container",
+        pinSpacing: true,
+        anticipatePin: 1,
       });
 
       // Animate sections and videos
       sections.forEach((section, index) => {
         ScrollTrigger.create({
           trigger: section,
-          start: "top center",
-          end: "bottom center",
+          start: "top 50%",
+          end: "bottom 50%",
           onEnter: () => {
             setCurrentItemIndex(index);
             setCurrentVideoIndex(0);
@@ -78,8 +80,8 @@ const ScrollAnimationComponent = () => {
         if (index === 0 && items[0].videos.length > 1) {
           ScrollTrigger.create({
             trigger: section,
-            start: "top center",
-            end: "bottom center",
+            start: "top 50%",
+            end: "bottom 50%",
             onUpdate: (self) => {
               const progress = self.progress;
               setCurrentVideoIndex(progress < 0.65 ? 0 : 1);
@@ -115,7 +117,7 @@ const ScrollAnimationComponent = () => {
   }, [currentItemIndex, currentVideoIndex]);
 
   return (
-    <div ref={componentRef} className="container relative">
+    <div ref={componentRef} className="container  relative">
       <div className="flex">
         <div className="w-1/2 pl-8 pr-4">
           {items.map((item, index) => (

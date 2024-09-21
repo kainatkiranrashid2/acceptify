@@ -55,12 +55,14 @@ const Home = () => {
         <Hero />
         {/* <OurClients classText="grayscale" /> */}
         <OurClients />
-        <div className="bg-[#F6F6F6] py-[110px]">
+        <div className="bg-[#FFFFFF] py-[110px]">
           <SectionHeading mainText="Why choose Acceptify" />
           <WhyChooseUs />
         </div>
         {/* <OurIndustries /> */}
-        <ScrollAnimationComponent />
+        <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF]">
+          <ScrollAnimationComponent />
+        </div>
         <div className="bg-[#F6F6F6] py-[110px]">
           <SectionHeading mainText="Why choose Acceptify" />
           <WhyChooseUs />
