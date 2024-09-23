@@ -63,10 +63,10 @@ const Home = () => {
         <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF]">
           <ScrollAnimationComponent />
         </div>
-        <div className="bg-[#F6F6F6] py-[110px]">
+        {/* <div className="bg-[#F6F6F6] py-[110px]">
           <SectionHeading mainText="Why choose Acceptify" />
           <WhyChooseUs />
-        </div>
+        </div> */}
       </div>
     </>
   );
