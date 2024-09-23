@@ -11,9 +11,9 @@ const useResponsiveVisibleLogos = () => {
       const width = window.innerWidth;
       if (width >= 1280) setVisibleLogos(6); // xl
       else if (width >= 1024) setVisibleLogos(6); // lg
-      else if (width >= 768) setVisibleLogos(5); // md
-      else if (width >= 640) setVisibleLogos(4); // sm
-      else setVisibleLogos(3); // xs
+      else if (width >= 768) setVisibleLogos(3); // md
+      else if (width >= 640) setVisibleLogos(2); // sm
+      else setVisibleLogos(1); // xs
     };
 
     handleResize();
@@ -104,7 +104,6 @@ const OurClients = ({ classText }) => {
   useEffect(() => {
     const autoPlayTimer = setInterval(nextSlide, 2000);
     return () => {
-      // setIsPaused(true);
       clearInterval(autoPlayTimer);
       if (timerRef.current) {
         clearTimeout(timerRef.current);
@@ -126,7 +125,7 @@ const OurClients = ({ classText }) => {
       <AnimatePresence initial={false} className="!h-[52px]">
         <motion.div
           key={currentIndex}
-          className="absolute  inset-0 flex justify-evenly items-center"
+          className="absolute  inset-0 flex justify-center sm:justify-evenly items-center"
           custom={direction}
           variants={{
             enter: (direction) => ({
@@ -158,24 +157,34 @@ const OurClients = ({ classText }) => {
               <img
                 src={logo}
                 alt={`Client logo ${index + 1}`}
-                className={`h-[20px] lg:h-full object-contain ${classText}`}
+                className={`h-[16px] sm:h-[31px] lg:h-full object-contain ${classText}`}
               />
             </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>
-      <div className="absolute left-0 top-1/2 h-full w-16 hidden lg:block">
+      <div className="absolute left-0 top-0 lg:top-1/2 h-full w-10 sm:w-12 md:w-14 lg:w-16 ">
         <button
           onClick={prevSlide}
-          className=" transform -translate-y-1/2 flex bg-white justify-center h-20 items-center p-5 z-10">
-          <FaArrowLeft size={32} className="text-gray-300" />
+          className=" transform lg:-translate-y-1/2 flex bg-white justify-center h-full items-center p-2 sm:p-3 md:p-4 lg:p-5 z-10">
+          <FaArrowLeft size={24} className="text-[#707070]  md:hidden" />
+          <FaArrowLeft
+            size={28}
+            className="text-[#707070] hidden md:block lg:hidden"
+          />
+          <FaArrowLeft size={44} className="text-[#707070] hidden lg:block" />
         </button>
       </div>
-      <div className="absolute right-0 top-1/2 h-full w-16 hidden lg:block">
+      <div className="absolute right-4  top-0 lg:top-1/2 h-full w-10 sm:w-12 md:w-14 lg:w-16 ">
         <button
           onClick={nextSlide}
-          className="transform -translate-y-1/2  bg-white flex justify-center h-20 items-center p-5 z-10">
-          <FaArrowRight size={32} className="text-gray-300" />
+          className="transform lg:-translate-y-1/2   bg-white flex justify-center  items-center h-full p-2 sm:p-3 md:p-4  lg:p-5 z-10">
+          <FaArrowRight size={24} className="text-[#707070] md:hidden" />
+          <FaArrowRight
+            size={28}
+            className="text-[#707070] hidden md:block lg:hidden"
+          />
+          <FaArrowRight size={44} className="text-[#707070] hidden lg:block" />
         </button>
       </div>
     </div>

@@ -56,7 +56,7 @@ const ScrollAnimationComponent = () => {
         start: "top top",
         end: "bottom bottom",
         pin: ".video-container",
-        pinSpacing: true,
+
         anticipatePin: 1,
       });
 

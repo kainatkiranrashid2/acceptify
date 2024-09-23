@@ -87,14 +87,14 @@ const Navbar = () => {
 
   const dropdownRef = useRef(null);
   const checkIfMobile = () => {
-    setIsMobile(window.innerWidth < 768); // Assuming 768px is your breakpoint for mobile
+    setIsMobile(window.innerWidth < 1024); // Assuming 768px is your breakpoint for mobile
   };
   useEffect(() => {
     checkIfMobile();
 
     const handleResize = () => {
       checkIfMobile();
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setIsSolutionOpen(false);
         setIsMobileMenuOpen(false);
       }
@@ -144,7 +144,7 @@ const Navbar = () => {
             />
           </div>
           {/* Menu Section */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <ul className="flex items-center gap-3">
               {NavbarMenu.map((menu) => (
                 <li key={menu.id} className="relative">
@@ -167,7 +167,7 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="hidden md:flex gap-[14px] items-center">
+          <div className="hidden lg:flex gap-[14px] items-center">
             <ThemeToggle />
             <motion.button
               className=" primary-btn flex items-center text-white text-[16px] font-bold !w-[139px] !h-[46px] py-[17.5px] px-6 rounded-lg font-PP_Mori"
@@ -181,7 +181,7 @@ const Navbar = () => {
             </motion.button>
           </div>
           {/* Mobile Hamburger menu section */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <FaEquals
               className="text-4xl text-white"
               onClick={() => {
@@ -195,7 +195,7 @@ const Navbar = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <div
-              className="md:hidden fixed top-16 left-0 right-0 bottom-0 bg-white
+              className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white
               z-50 overflow-y-auto">
               <div className="container py-4">
                 <ul className="space-y-4">

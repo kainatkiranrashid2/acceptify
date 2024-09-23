@@ -42,7 +42,7 @@ const Hero = () => {
           {/* <CloudScene className="absolute dark:hidden w-full max-w-6xl left-[25%]  z-20" /> */}
           <img
             src="/assets/cloud.png"
-            className="absolute hidden md:block dark:hidden w-30 max-w-6xl top-4 left-[55%]  z-20"
+            className="absolute hidden lg:block dark:hidden w-30 max-w-6xl top-4 left-[55%]  z-20"
           />
           <motion.video
             src="/assets/hero/half_globe.webm"
