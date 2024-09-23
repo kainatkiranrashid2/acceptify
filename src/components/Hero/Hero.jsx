@@ -47,7 +47,7 @@ const Hero = () => {
           <motion.video
             src="/assets/hero/half_globe.webm"
             alt="Global map"
-            className="w-full hidden md:block	 :z-20 *  max-w-full mx-auto relative"
+            className="w-full hidden md:block	 lg:z-20 *  max-w-full mx-auto relative"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.9, duration: 1 }}

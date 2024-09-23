@@ -18,7 +18,7 @@ const ClaimCard = ({ icon, heading, details }) => {
             style={{ letterSpacing: "-1px" }}>
             {heading}
           </h1>
-          <p className="text-[15px]/[24px] sm:text-[14.5px]/[23px] md:text-[18px]/[29px] xl:text-[18px]/[30px] 2xl:text-[32px]/[40px] text-dark text-left font-[500] font-PP_Mori">
+          <p className="text-[15px]/[24px] sm:text-[14.5px]/[23px] md:text-[18px]/[29px] xl:text-[18px]/[30px]  text-dark text-left font-[500] font-PP_Mori">
             {details}
           </p>
         </div>
