@@ -117,7 +117,7 @@ const WhyChooseUs = () => {
 
   return (
     <motion.div ref={ref} className="container  rounded-3xl ">
-      <div className="grid grid-cols-3 gap-10 ">
+      <div className="grid grid-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
         {WhyLsaPayValues.map((item) => (
           <ClaimCard
             key={item.id}

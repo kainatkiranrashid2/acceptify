@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const ClaimCard = ({ icon, heading, details }) => {
   return (
     <div className="relative overflow-hidden rounded-[20px] bg-white px-8 flex flex-col items-start">
-      <div className="absolute -top-40 -right-16 w-64 h-64 border border-[#E1E1E1] rounded-full"></div>
+      <div className="absolute -top-[11rem] -right-28 md:-top-[10rem] md:-right-28 lg:-top-40 lg:-right-16 w-64 h-64 border border-[#E1E1E1] rounded-full"></div>
       <div className="my-6 bg-white flex flex-col items-start rounded-2xl">
         <div className="w-[62px] h-[62px]">
           <img
@@ -14,11 +14,11 @@ const ClaimCard = ({ icon, heading, details }) => {
         </div>
         <div>
           <h1
-            className="text-h4 text-dark text-left font-bold font-PP_Mori mb-[8px] mt-[18px]"
-            style={{ lineHeight: "40px", letterSpacing: "-1px" }}>
+            className="text-[19px]/[24px] sm:text-[21px]/[26px] md:text-[24px]/[30px] xl:text-[29px]/[36.25px] 2xl:text-[32px]/[40px]   font-semibold text-dark text-left  font-PP_Mori mb-[8px] mt-[18px]"
+            style={{ letterSpacing: "-1px" }}>
             {heading}
           </h1>
-          <p className="text-[18px] text-dark text-left font-[500] font-PP_Mori">
+          <p className="text-[15px]/[24px] sm:text-[14.5px]/[23px] md:text-[18px]/[29px] xl:text-[18px]/[30px] 2xl:text-[32px]/[40px] text-dark text-left font-[500] font-PP_Mori">
             {details}
           </p>
         </div>

@@ -55,7 +55,7 @@ const Home = () => {
         <Hero />
         {/* <OurClients classText="grayscale" /> */}
         <OurClients />
-        <div className="bg-[#FFFFFF] py-[110px]">
+        <div className="bg-[#F3F4F2] py-[54px] sm:py-[68px]  py:mb-[61px] py:mb-[76px]">
           <SectionHeading mainText="Why choose Acceptify" />
           <WhyChooseUs />
         </div>

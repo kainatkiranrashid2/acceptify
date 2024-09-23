@@ -3,12 +3,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+const useResponsiveVisibleLogos = () => {
+  const [visibleLogos, setVisibleLogos] = useState(6);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1280) setVisibleLogos(6); // xl
+      else if (width >= 1024) setVisibleLogos(6); // lg
+      else if (width >= 768) setVisibleLogos(5); // md
+      else if (width >= 640) setVisibleLogos(4); // sm
+      else setVisibleLogos(3); // xs
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return visibleLogos;
+};
 
 const OurClients = ({ classText }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef(null);
+  const visibleLogos = useResponsiveVisibleLogos();
 
   const logos = [
     "/assets/hero/1.png",
@@ -39,8 +60,6 @@ const OurClients = ({ classText }) => {
     " /assets/hero/26.png",
     " /assets/hero/27.png",
   ];
-
-  const visibleLogos = 6;
 
   const handleVisibilityChange = useCallback(() => {
     if (document.hidden) {
@@ -85,6 +104,7 @@ const OurClients = ({ classText }) => {
   useEffect(() => {
     const autoPlayTimer = setInterval(nextSlide, 2000);
     return () => {
+      // setIsPaused(true);
       clearInterval(autoPlayTimer);
       if (timerRef.current) {
         clearTimeout(timerRef.current);
@@ -102,16 +122,26 @@ const OurClients = ({ classText }) => {
   };
 
   return (
-    <div className="relative isolate  !h-[148px]  bg-white py-10 w-full  overflow-hidden">
+    <div className="relative isolate   h-[59px] lg:!h-[148px]  bg-white  py-5 lg:py-10 w-full  overflow-hidden">
       <AnimatePresence initial={false} className="!h-[52px]">
         <motion.div
           key={currentIndex}
           className="absolute  inset-0 flex justify-evenly items-center"
           custom={direction}
           variants={{
-            enter: (direction) => ({ x: direction > 0 ? "16.67%" : "-16.67%" }),
+            enter: (direction) => ({
+              x:
+                direction > 0
+                  ? `${100 / visibleLogos}%`
+                  : `-${100 / visibleLogos}%`,
+            }),
             center: { x: 0 },
-            exit: (direction) => ({ x: direction > 0 ? "-16.67%" : "16.67%" }),
+            exit: (direction) => ({
+              x:
+                direction > 0
+                  ? `-${100 / visibleLogos}%`
+                  : `${100 / visibleLogos}%`,
+            }),
           }}
           initial="enter"
           animate="center"
@@ -128,20 +158,20 @@ const OurClients = ({ classText }) => {
               <img
                 src={logo}
                 alt={`Client logo ${index + 1}`}
-                className={`h-full object-contain ${classText}`}
+                className={`h-[20px] lg:h-full object-contain ${classText}`}
               />
             </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>
-      <div className="absolute left-0 top-1/2 h-full w-16">
+      <div className="absolute left-0 top-1/2 h-full w-16 hidden lg:block">
         <button
           onClick={prevSlide}
           className=" transform -translate-y-1/2 flex bg-white justify-center h-20 items-center p-5 z-10">
           <FaArrowLeft size={32} className="text-gray-300" />
         </button>
       </div>
-      <div className="absolute right-0 top-1/2 h-full w-16">
+      <div className="absolute right-0 top-1/2 h-full w-16 hidden lg:block">
         <button
           onClick={nextSlide}
           className="transform -translate-y-1/2  bg-white flex justify-center h-20 items-center p-5 z-10">
