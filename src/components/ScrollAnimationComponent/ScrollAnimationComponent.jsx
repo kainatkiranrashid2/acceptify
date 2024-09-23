@@ -18,13 +18,13 @@ const items = [
     title: "Online/Offline",
     description:
       "No connection, no problem. Acceptify intelligently ensures that all your transactions are swift, secure, and trackable, whether your devices are online or offline.",
-    videos: ["/assets/scroll_animation/01.webm"],
+    videos: ["/assets/scroll_animation/phone.webm"],
   },
   {
     title: "Enterprise Processing",
     description:
       "No connection, no problem. Acceptify intelligently ensures that all your transactions are swift, secure, and trackable, whether your devices are online or offline.",
-    videos: ["/assets/scroll_animation/02.webm"],
+    videos: ["/assets/scroll_animation/battery.webm"],
   },
 ];
 
