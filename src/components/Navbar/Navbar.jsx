@@ -10,6 +10,8 @@ import ThemeToggle from "../reuseable_components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import TextComponent from "../reuseable_components/TextComponent";
+import { FaE } from "react-icons/fa6";
+import { FaEquals } from "react-icons/fa";
 
 const NavbarMenu = [
   {
@@ -180,8 +182,8 @@ const Navbar = () => {
           </div>
           {/* Mobile Hamburger menu section */}
           <div className="md:hidden">
-            <IoMdMenu
-              className="text-4xl"
+            <FaEquals
+              className="text-4xl text-white"
               onClick={() => {
                 setIsMobileMenuOpen(!isMobileMenuOpen);
                 setMobileSubmenu(null);
