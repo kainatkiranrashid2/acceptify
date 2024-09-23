@@ -138,7 +138,7 @@ const Navbar = () => {
           {/* Logo section */}
           <div className="h-[62px] w-[62px] flex items-center">
             <img
-              src="/assets/Logo_png.png"
+              src="/assets/acceptify.png"
               className="bg-transparent h-full w-auto object-contain"
               alt="lsapay_logo"
             />
