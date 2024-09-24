@@ -84,7 +84,7 @@ const ScrollAnimationComponent = () => {
             end: "bottom 50%",
             onUpdate: (self) => {
               const progress = self.progress;
-              setCurrentVideoIndex(progress < 0.65 ? 0 : 1);
+              setCurrentVideoIndex(progress < 0.75 ? 0 : 1);
             },
           });
         }
