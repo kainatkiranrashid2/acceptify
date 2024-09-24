@@ -33,7 +33,7 @@ const Hero = () => {
 
           <AnimatedText
             className=" text-[15px]/[24.5px] sm:text-[17px]/[28px]  lg:text-[18px]/[29.7px] font-medium w-[271px] sm:sm-[513px] md:w-[598px]  lg:w-[662px] font-PP_Mori text-dark dark:text-white mt-[14px] sm:mt-[20px] md:mt-[27px] lg:mt[30px]  max-w-2xl mx-auto"
-            text="Acceptify enables your applications to accept worldwide, secure, certified, online/offline payments while removing all of your security concerns."
+            text="Acceptify enables your applications to accept easily worldwide, secure, certified, online/offline payments while removing all of your security concerns."
           />
         </div>
       </div>
@@ -44,24 +44,19 @@ const Hero = () => {
             src="/assets/cloud.png"
             className="absolute hidden lg:block dark:hidden w-30 max-w-6xl top-4 left-[55%]  z-20"
           />
-          <motion.video
+          <video
             src="/assets/hero/half_globe.webm"
             alt="Global map"
             className="w-full hidden md:block	 lg:z-20 *  max-w-full mx-auto relative"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.9, duration: 1 }}
             autoPlay
+            playsInline
             loop
             muted
           />
-          <motion.video
+          <video
             src="/assets/hero/mobile_half_globe.webm"
             alt="Global map"
             className="w-full  md:hidden	 :z-20  max-w-full mx-auto relative"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.9, duration: 1 }}
             autoPlay
             loop
             muted
