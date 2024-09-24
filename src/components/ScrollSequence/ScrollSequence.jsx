@@ -914,9 +914,6 @@ const items = [
       "/assets/scroll_animation/phone/0295.png",
       "/assets/scroll_animation/phone/0296.png",
       "/assets/scroll_animation/phone/0297.png",
-      "/assets/scroll_animation/phone/0298.png",
-      "/assets/scroll_animation/phone/0299.png",
-      "/assets/scroll_animation/phone/0300.png",
     ],
   },
   {
@@ -1107,7 +1104,7 @@ const ScrollSequence = () => {
                 className="absolute top-0 left-0 w-full h-full">
                 <img
                   src={item.imageSources[currentFrame]}
-                  alt={`Sequence ${itemIndex}`}
+                  alt={`Sequence ${item.imageSources[currentFrame]}`}
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full aspect-video object-contain transition-opacity duration-300 ease-in-out"
                   style={{
                     opacity: itemIndex === currentItemIndex ? 1 : 0,

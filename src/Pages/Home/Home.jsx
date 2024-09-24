@@ -18,11 +18,12 @@ const Home = () => {
           <WhyChooseUs />
         </div>
         {/* <OurIndustries /> */}
-        {/* <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF]">
-          <ScrollAnimationComponent />
-        </div> */}
+
         <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF]">
           <ScrollSequence />
+        </div>
+        <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF]">
+          <ScrollAnimationComponent />
         </div>
         {/* <div className="bg-[#F6F6F6] py-[110px]">
           <SectionHeading mainText="Why choose Acceptify" />
