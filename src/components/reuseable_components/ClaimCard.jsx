@@ -1,11 +1,15 @@
 import PropTypes from "prop-types";
 
 const ClaimCard = ({ icon, heading, details }) => {
+  console.log(icon);
   return (
     <div className="relative overflow-hidden rounded-[20px] bg-white px-8 flex flex-col items-start">
       <div className="absolute -top-[11rem] -right-28 md:-top-[10rem] md:-right-28 lg:-top-40 lg:-right-16 w-64 h-64 border border-[#E1E1E1] rounded-full"></div>
       <div className="my-6 bg-white flex flex-col items-start rounded-2xl">
-        <div className="w-[62px] h-[62px]">
+        <div
+          className={`${
+            icon.alt === "online_svg" ? "w-[100px]" : "w-[62px]"
+          } h-[62px]`}>
           <img
             src={icon.src}
             alt={icon.alt}

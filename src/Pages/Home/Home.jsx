@@ -1,3 +1,4 @@
+import FlexCaseAnimation from "../../components/FlexcaseAnimation/FlexcaseSequence";
 import Hero from "../../components/Hero/Hero";
 import OurClients from "../../components/OurClients/OurClients";
 import OurIndustries from "../../components/OurIndustries/OurIndustries";
@@ -11,24 +12,20 @@ const Home = () => {
     <>
       <div>
         <Hero />
-        {/* <OurClients classText="grayscale" /> */}
         <OurClients />
         <div className="bg-[#F3F4F2] py-[54px] sm:py-[68px]  py:mb-[61px] py:mb-[76px]">
           <SectionHeading mainText="Why choose Acceptify" />
           <WhyChooseUs />
         </div>
-        {/* <OurIndustries /> */}
+        <OurIndustries />
 
         <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF]">
-          <ScrollSequence />
+          {/* <ScrollSequence /> */}
+          <FlexCaseAnimation />
         </div>
         <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF]">
-          <ScrollAnimationComponent />
+          {/* <ScrollAnimationComponent /> */}
         </div>
-        {/* <div className="bg-[#F6F6F6] py-[110px]">
-          <SectionHeading mainText="Why choose Acceptify" />
-          <WhyChooseUs />
-        </div> */}
       </div>
     </>
   );

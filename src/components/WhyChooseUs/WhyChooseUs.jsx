@@ -25,7 +25,7 @@ const WhyLsaPayValues = [
   {
     id: 2,
     icon: {
-      src: "/assets/why_choose_us/ios.png",
+      src: "/assets/why_choose_us/devices.png",
       alt: "online_svg",
     },
     heading: "iOS, Android or Windows",
